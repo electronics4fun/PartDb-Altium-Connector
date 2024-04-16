@@ -1,4 +1,4 @@
-# PartDb-Altium-Sql-Link
+# PartDb-Altium-Connector
 
 [![license](https://img.shields.io/github/license/:user/:repo.svg)](LICENSE)
 
