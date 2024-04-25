@@ -16,7 +16,7 @@
 
 
 ## Background
-The code in this repository connects [PartDb](https://github.com/Part-DB/Part-DB-server) with [Altium Designer](https://www.altium.com/de/altium-designer).
+The code in this repository connects [Part-DB-server](https://github.com/Part-DB/Part-DB-server) with [Altium Designer](https://www.altium.com/de/altium-designer).
 You can define a symbol and up to three footprints (comma separated) for a part under the EDA-Settings (that is originally used for the KiCad API).
 The parts are then browseable in Altium.
 Footprints and Symbols remains as files in Altium.
