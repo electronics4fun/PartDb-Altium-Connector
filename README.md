@@ -7,6 +7,7 @@
 
 - [Background](#background)
 - [Requirements](#requirements)
+- [Coexistence with KiCad](#coexistence)
 - [Install](#install)
 - [Usage](#usage)
 - [Note](#note)
@@ -19,12 +20,22 @@
 The code in this repository connects [Part-DB-server](https://github.com/Part-DB/Part-DB-server) with [Altium Designer](https://www.altium.com/de/altium-designer).
 You can define a symbol and up to three footprints (comma separated) for a part under the EDA-Settings (that is originally used for the KiCad API).
 The parts are then browseable in Altium.
-Footprints and Symbols remains as files in Altium.
+Footprints and Symbols remains as files in Altium (as a Altium-Library).
 
 
 ## Requirements
 - PartDb is running with mySQL (and you have access to it)
-- Altium is connected using ODBC
+- Altium is connected via ODBC to the database server
+
+
+## Coexistence with KiCad
+The view that generates the part listing for altium cuts away the prefix of the library name including the first ':' for symbols and footprints.
+This allows the coixistence of KiCad with Altium libraries as long as the same name for the part is used in both worlds.
+In KiCad you can add the same Altium library files to your symbol and footprint libraries (or use native libs instead).
+Note: No ':' is allowed in the library names because of the cut of the prefix!
+
+![View on MySql-Server](/doc/KiCadFootprintLibSettings.jpg)
+![View on MySql-Server](/doc/KiCadSymbolLibSettings.jpg)
 
 
 ## Install

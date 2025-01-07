@@ -16,10 +16,10 @@ select `parts`.`id` AS `id`,
         `parts`.`eda_info_exclude_from_bom` AS `EDA_exclude_from_bom`,
         `parts`.`eda_info_exclude_from_board` AS `EDA_exclude_from_board`,
         `parts`.`eda_info_exclude_from_sim` AS `EDA_exclude_from_sim`,
-        `parts`.`eda_info_kicad_symbol` AS `EDA_symbol`,
-        REPLACE(SUBSTRING_INDEX(`parts`.`eda_info_kicad_footprint`, ',', 1), ' ', '') AS EDA_footprint1,
-        REPLACE(IF(SUBSTRING_INDEX(SUBSTRING_INDEX(`parts`.`eda_info_kicad_footprint`, ',', 2), ',', -1)=`parts`.`eda_info_kicad_footprint`, NULL, SUBSTRING_INDEX(SUBSTRING_INDEX(`parts`.`eda_info_kicad_footprint`, ',', 2), ',', -1)), ' ', '')  AS EDA_footprint2,
-        REPLACE(IF(SUBSTRING_INDEX(`parts`.`eda_info_kicad_footprint`, ',', -1)=`parts`.`eda_info_kicad_footprint`, NULL, SUBSTRING_INDEX(`parts`.`eda_info_kicad_footprint`, ',', -1)), ' ', '') AS EDA_footprint3,
+        SUBSTRING_INDEX(`parts`.`eda_info_kicad_symbol`, ':', -1) AS `EDA_symbol`,
+        REPLACE(SUBSTRING_INDEX(SUBSTRING_INDEX(`parts`.`eda_info_kicad_footprint`, ':', -1), ',', 1), ' ', '') AS `EDA_footprint1`,
+        REPLACE(IF(SUBSTRING_INDEX(SUBSTRING_INDEX(SUBSTRING_INDEX(`parts`.`eda_info_kicad_footprint`, ':', -1), ',', 2), ',', -1)=SUBSTRING_INDEX(`parts`.`eda_info_kicad_footprint`, ':', -1), NULL, SUBSTRING_INDEX(SUBSTRING_INDEX(SUBSTRING_INDEX(`parts`.`eda_info_kicad_footprint`, ':', -1), ',', 2), ',', -1)), ' ', '')  AS `EDA_footprint2`,
+        REPLACE(IF(SUBSTRING_INDEX(SUBSTRING_INDEX(`parts`.`eda_info_kicad_footprint`, ':', -1), ',', -1)=SUBSTRING_INDEX(`parts`.`eda_info_kicad_footprint`, ':', -1), NULL, SUBSTRING_INDEX(SUBSTRING_INDEX(`parts`.`eda_info_kicad_footprint`, ':', -1), ',', -1)), ' ', '') AS `EDA_footprint3`,
         `datasheets`.`PartName` AS `datasheetName`,
         `datasheets`.`Path` AS `datasheetPath`,
         `images`.`PartName` AS `imageName`,
@@ -33,5 +33,3 @@ from (((((`parts`
     left join `datasheets` on (`datasheets`.`id` = `parts`.`id`))
     left join `images` on (`images`.`id` = `parts`.`id`))
 where (`parts`.`eda_info_invisible` = 1)
-
-
