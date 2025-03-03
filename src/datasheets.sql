@@ -6,7 +6,7 @@ FROM (
     SELECT 
         `parts`.`id` AS `id`,
         `parts`.`name` AS `PartName`,
-        REPLACE(`attachments`.`path`, "%MEDIA%", "https://yourServerName/media") AS `Path`,
+        REPLACE(`attachments`.`internal_path`, "%MEDIA%", "https://yourServerName/media") AS `Path`,
         ROW_NUMBER() OVER (PARTITION BY `parts`.`id` ORDER BY `attachments`.`id`) AS row_num
     FROM 
         `parts`
