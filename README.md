@@ -5,6 +5,7 @@
 
 ## Table of Contents
 
+- [Compatibility](#compatibility)
 - [Background](#background)
 - [Requirements](#requirements)
 - [Coexistence with KiCad](#coexistence)
@@ -14,6 +15,10 @@
 - [Maintainers](#maintainers)
 - [Contributing](#contributing)
 - [License](#license)
+
+
+## Compatibility
+This Version runs with Part-DB-server 1.16.1
 
 
 ## Background
