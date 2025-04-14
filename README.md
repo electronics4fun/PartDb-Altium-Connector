@@ -18,7 +18,7 @@
 
 
 ## Compatibility
-This Version runs with Part-DB-server 1.16.1
+This Version runs with Part-DB-server 1.16.1, 1.17.0.
 
 
 ## Background
