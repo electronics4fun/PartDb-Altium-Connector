@@ -58,8 +58,9 @@ Note: No ':' is allowed in the library names because of the cut of the prefix!
 
 ### Settings in Altium
 - setup a database connection (DbLib) and connect to your database via ODBC
-- use the settings from the image "AltiumSettings". Note that in your case the table/view is called "allParts" or the name that you have given.
+- use the settings from the image "AltiumSettings". Note that in your case the table/view is called "allParts" or the name that you have given
 - the symbols and footprints must be available in file libraries (PcbLib/SchLib)
+- In the "Connection string" use your own password, server and port settings 
   
 ![Altium Settings](/doc/AltiumDbLibSettings.jpg)
 
@@ -90,6 +91,7 @@ Feel free to dive in! [Open an issue](https://github.com/electronics4fun/PartDb-
 ## License
 
 [MIT](LICENSE)
+
 
 
 
